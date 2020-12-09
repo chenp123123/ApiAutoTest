@@ -1,0 +1,25 @@
+#注册失败的数据放register_pass.paml
+
+- data: {"mobilephone":"","pwd":"123456","regname":"hu"}
+  expect: {"code":"20103","data":{},"msg":"手机号不能为空","status":0}
+
+- data: {"mobilephone":"15214567976","pwd":"","regname":"hu"}
+  expect: {"code":"20103","data":{},"msg":"密码不能为空","status":0}
+
+- data: {"mobilephone":"11214567976","pwd":"123456","regname":"gf"}
+  expect: {"code":"20109","data":{},"msg":"手机号码格式不正确","status":0}
+
+- data: {"mobilephone":"15129938622","pwd":"123456","regname":"gf"}
+  expect: {"code":"20110","data":{},"msg":"手机号码已被注册","status":0}
+
+- data: {"mobilephone":"16129938653","pwd":"12345","regname":"gf"}
+  expect: {"code":"20108","data":{},"msg":"密码长度必须为6~18","status":0}
+
+- data: {"mobilephone":"16129938653","pwd":"12345","regname":""}
+  expect: {"code":"20108","data":{},"msg":"密码长度必须为6~18","status":0}
+
+- data: {"mobilephone":"16129938653","pwd":"1234566543234567898","regname":""}
+  expect: {"code":"20108","data":{},"msg":"密码长度必须为6~18","status":0}
+
+- data: {"mobilephone":"16129938653","pwd":"1234566543234567898","regname":"gfh"}
+  expect: {"code":"20108","data":{},"msg":"密码长度必须为6~18","status":0}
